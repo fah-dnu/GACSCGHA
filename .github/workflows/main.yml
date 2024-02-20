@@ -18,7 +18,7 @@ jobs:
     - name: Setup MSBuild
       uses: microsoft/setup-msbuild@v1.0.2
     - name: Build with MSBuild
-      run: msbuild D:\DocumentosDNU\Compilacion\GACSCGHA\consolaPrueba\consolaPrueba.sln /p:Configuration=Release /p:TargetFrameworkVersion=v4.8  
+      run: msbuild D:/DocumentosDNU/Compilacion/GACSCGHA/consolaPrueba/consolaPrueba.sln /p:Configuration=Release /p:TargetFrameworkVersion=v4.8  
       
       #Indica que se copien los archivos en la ruta seleccionada
     - name: Guardar archivos
