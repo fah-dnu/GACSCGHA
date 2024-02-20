@@ -1,0 +1,35 @@
+name: Guardar archivos de Compilación
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '3.1.301' # Ejemplo para SDK de .NET Core, ajustar según sea necesario
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v1.0.2
+    - name: Build with MSBuild
+      run: msbuild compilacion_actions.sln /p:Configuration=Release /p:TargetFrameworkVersion=v4.8  
+      
+      #Indica que se copien los archivos en la ruta seleccionada
+    - name: Guardar archivos
+      run: |
+        cp -R D:\DocumentosDNU\Compilacion\GACSCGHA\ArchivosComp
+        
+      #Hace commit de los archivos generados y los sube al repositorio  
+    - name: Hacer commit de los archivos resultantes
+      run: |
+        git config --global user.email "fah@dnu.com.mx"
+        git config --global user.name "Javier Acevedo"
+        git add ArchivosComp
+        git commit -m "Añade archivos de compilación"
+        git push origin HEAD:master
