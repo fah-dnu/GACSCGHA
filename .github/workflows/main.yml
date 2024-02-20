@@ -15,10 +15,12 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: '3.1.301' # Ejemplo para SDK de .NET Core, ajustar según sea necesario
-    - name: Setup MSBuild
-      uses: microsoft/setup-msbuild@v1.0.2
-    - name: Build with MSBuild
-      run: msbuild D:/DocumentosDNU/Compilacion/GACSCGHA/consolaPrueba/consolaPrueba.sln /p:Configuration=Release /p:TargetFrameworkVersion=v4.8  
+    - name: Build with .NET Core CLI
+      run: dotnet build --configuration Release    
+    #- name: Setup MSBuild
+     # uses: microsoft/setup-msbuild@v1.0.2
+    #- name: Build with MSBuild
+     # run: msbuild D:/DocumentosDNU/Compilacion/GACSCGHA/consolaPrueba/consolaPrueba.sln /p:Configuration=Release /p:TargetFrameworkVersion=v4.8  
       
       #Indica que se copien los archivos en la ruta seleccionada
     - name: Guardar archivos
