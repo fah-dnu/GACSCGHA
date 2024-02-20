@@ -16,7 +16,7 @@ jobs:
       with:
         dotnet-version: '3.1.301' # Ejemplo para SDK de .NET Core, ajustar según sea necesario
     - name: Build with .NET Core CLI
-      run: dotnet build D:\DocumentosDNU\Compilacion\GACSCGHA\consolaPrueba\consolaPrueba.csproj /p:Configuration=Release
+      run: dotnet build D:/DocumentosDNU/Compilacion/GACSCGHA/consolaPrueba/consolaPrueba.csproj /p:Configuration=Release
     #- name: Setup MSBuild
      # uses: microsoft/setup-msbuild@v1.0.2
     #- name: Build with MSBuild
